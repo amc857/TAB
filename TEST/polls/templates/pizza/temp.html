@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById("sideMenu");
+            sideMenu.classList.toggle("open");
+        }
+    </script>
+
+</head>
+<body>
+    <!-- Pasek na górze strony -->
+    <header class="navbar">
+        <!-- Ikona menu -->
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        {% block header %}{% endblock header %}
+        <div class="user-info">
+            {% block user-info %}
+                {% if user is not None %}<section>Hi, {{ user }} </section> {% else %} <section>Hi, unlogged!</section> {% endif %}
+            {% endblock user-info %}
+        </div>
+    </header>
+
+    <!-- Menu boczne -->
+    <div class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href={% url 'pizza:home' %}>Mein</a></li>
+            <li><a href={% url 'pizza:login' %}>Login</a></li>
+            <li><a href={% url 'pizza:menu' %}>Menu</a></li>
+            
+            {% block side_menu %}{% endblock side_menu %}
+        </ul>
+        
+    </div>
+    
+    
+
+
+    <!-- Główne pole -->
+    
+        {% block main %}{% endblock main %}
+    
+
+
+</body>
+</html>

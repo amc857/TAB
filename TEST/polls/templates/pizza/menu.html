@@ -1,0 +1,38 @@
+{% extends "pizza/temp.html" %}
+
+{% block title %}
+    Menu
+{% endblock title %}
+
+{% block main %}
+    <form action="{% url 'pizza:menu' %}" method="post" class="menu_item">
+        {% csrf_token %}
+
+        <h1>Menu</h1>
+        {% for item in menu %}
+            <div class="menu_item">
+                <table height="90%">
+                    <tr><td>Nazwa</td><td>Cena</td><td rowspan="2"><img src="{{ item.img }}" height="75px" alt="alt"></td><td>Opis</td></tr>
+                    <tr><td>{{ item.name }}</td><td>{{ item.price }}</td><td>{{ item.opis }}</td></tr>
+                </table>
+                <input type="submit" name="Mod" value="Zmień"><br/>
+                <input type="submit" name="Del" value="Usuń">
+            </div>
+        {%endfor%}
+        <div class="menu_item">
+            <table>
+                <tr>
+                    <td>Dodaj</td><td><input type="submit" name="Add" value="+"></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+{% endblock main %}
+
+{% block header %}
+    <h1>Hello, pizza!</h1>
+{% endblock header %}
+
+{% block side_menu %}
+    
+{% endblock side_menu %}

@@ -1,0 +1,376 @@
+/* stylemain.css */
+
+/* Resetowanie stylów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Pasek nawigacyjny */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+}
+
+#logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.title h1 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+.send{
+    margin: auto;
+}
+
+.menu_item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(240,248,255,0.7);
+    border-radius: 20px;
+    width: 100%;
+    height: 40%;
+    flex-direction: row;
+    margin: 10px;
+}
+
+form.menu_item{
+    width: 60%;
+    flex-direction: column;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('background.jpg') no-repeat center center/cover;
+    backdrop-filter: blur(8px);
+}
+
+/* Ikona menu */
+.menu-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 10;
+    margin-right: 10px;
+}
+
+.menu-icon div {
+    height: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+/* Ukryte menu boczne */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+    z-index: 9;
+    padding-top: 50px;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu li {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.side-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Główna sekcja */
+div.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(240,248,255,0.7);
+    border-radius: 20px;
+    width: 60%;
+    height: 70%;
+    flex-direction: column;
+}
+
+
+
+.dish {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.dish img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.dish-info {
+    flex-grow: 1;
+}
+
+.dish-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.dish-info p {
+    font-size: 14px;
+    color: #777;
+}
+
+.dish-price {
+    text-align: right;
+}
+
+.dish-price span {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dish-price button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.dish-price button:hover {
+    background-color: #45a049;
+}
+
+/* Koszyk */
+.basket-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.basket-container h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.basket-items {
+    margin-bottom: 20px;
+}
+
+.basket-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.basket-item img {
+    height: 60px;
+    width: 60px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.basket-info {
+    flex: 1;
+    text-align: left;
+}
+
+.basket-info h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.basket-info p {
+    font-size: 14px;
+    color: #666;
+}
+
+.remove-button {
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.remove-button:hover {
+    background-color: #d32f2f;
+}
+
+.basket-summary {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.basket-summary h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.total-price {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.checkout-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.checkout-button:hover {
+    background-color: #45a049;
+}
+
+.account-panel {
+    background-color: rgba(255, 255, 255, 0.9); /* Białe tło dla panelu */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.account-info, .order-history, .change-email {
+    margin-bottom: 30px;
+}
+
+.account-info p,
+.order-history ul li,
+.change-email input {
+    font-size: 16px;
+    color: #333;
+}
+
+.order-history ul {
+    list-style: none;
+}
+
+.change-email input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/*popup payment*/
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: #fff;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.close-btn {
+    align-self: flex-end;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
