@@ -1,6 +1,7 @@
 from django.apps import AppConfig
 
 
-class PollsConfig(AppConfig):
+class BudgetConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'polls'
+    name = 'budget'
+    verbose_name = 'Bud¿et domowy'

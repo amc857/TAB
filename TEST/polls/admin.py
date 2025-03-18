@@ -1,22 +1,26 @@
 from django.contrib import admin
-from .models import Question, Choice
+from .models import User, Category, Transaction, Budget
 
-# Register your models here.
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff')
+    search_fields = ('username', 'email', 'first_name', 'last_name')
 
-class ChoiceInline(admin.TabularInline):
-    model = Choice
-    extra = 1
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'icon', 'is_expense')
+    list_filter = ('is_expense',)
+    search_fields = ('name',)
 
-class QuestionAdmin(admin.ModelAdmin):
-    fieldsets = [
-        (None, {"fields": ["question_text"]}),
-        ("Date information", {"fields": ["pub_date"]}),
-    ]
-    inlines = [ChoiceInline]
-    list_display = ["question_text", "pub_date", "was_published_recently"]
-    list_filter = ["pub_date"]
-    search_fields = ["question_text"]
+@admin.register(Transaction)
+class TransactionAdmin(admin.ModelAdmin):
+    list_display = ('title', 'user', 'category', 'amount', 'date')
+    list_filter = ('category', 'date', 'user')
+    search_fields = ('title', 'description')
+    date_hierarchy = 'date'
 
-
-admin.site.register(Question, QuestionAdmin)
-admin.site.register(Choice)
+@admin.register(Budget)
+class BudgetAdmin(admin.ModelAdmin):
+    list_display = ('user', 'category', 'amount', 'period_start', 'period_end')
+    list_filter = ('category', 'user')
+    search_fields = ('user__username', 'category__name')
